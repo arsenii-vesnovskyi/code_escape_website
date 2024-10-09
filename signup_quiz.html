@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the webpage -->
+    <title>CodeEscape - Quiz</title>
+    
+    <!-- Linking Google Fonts that we have found for our website -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Linking external CSS stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <!-- Navigation bar with logo and links -->
+        <nav class="navbar">
+            <div class="logo">
+                <!-- Logo linking to the homepage -->
+                <a href="index.html">CodeEscape</a>
+            </div>
+            <!-- Navigation links for different sections of the website -->
+            <!-- My Profile page is not available for users that are not logged in -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games_page_logged_out.html">Games</a></li>
+                <li><a href="about_us_logged_out.html">About</a></li>
+                <li><a href="contact_us_logged_out.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Section for Sign Up -->
+    <section class="signup">
+        <!-- Heading for the Sign Up Quiz -->
+        <h2>Profile Quiz</h2>
+        <!-- Image for the Sign Up Quiz -->
+        <img class="header-image" src="https://media.giphy.com/media/3o7aCTfyhYawdOXcFW/giphy.gif" alt="Quiz Image">
+        <!-- Form for the Sign Up Quiz -->
+        <form id="quiz-form" action="signup_quiz.php" method="POST">
+            <!--First Question of the Quiz-->
+            <div class="question-box">
+                <!--Question 1-->
+                <p>1. What is the best strategy in escape rooms?</p>
+                <!--Options for Question 1-->
+                <label>
+                    <!--Image for Option 1-->
+                    <img src="https://i.gifer.com/fyBR.gif" alt="Be observant">
+                    <!--Radio Button for Option 1-->
+                    <input type="radio" name="q1" value="1" required> Be observant 
+                </label>
+                <label>
+                    <!--Image for Option 2-->
+                    <img src="https://i.gifer.com/Kzq7.gif" alt="Be flexible">
+                    <!--Radio Button for Option 2-->
+                    <input type="radio" name="q1" value="2" required> Be flexible
+                </label>
+                <label>
+                    <!--Image for Option 3-->
+                    <img src="https://i.gifer.com/Bal6.gif" alt="Be fearless">
+                    <!--Radio Button for Option 3-->
+                    <input type="radio" name="q1" value="3" required> Be fearless
+                </label>
+            </div>
+            <!--The other questions in the quiz have similar structure as the first one-->
+            <!--Question 2-->
+            <div class="question-box">
+                <p>2. Which one are you most interested in learning?</p>
+                <label>
+                    <img src="https://i.gifer.com/7rxj.gif" alt="HTML">
+                    <input type="radio" name="q2" value="1" required> HTML
+                </label>
+                <label>
+                    <img src="https://i.pinimg.com/originals/47/c4/d4/47c4d4210ba433dfd3332aeb2ca63a51.gif" alt="CSS">
+                    <input type="radio" name="q2" value="2" required> CSS
+                </label>
+                <label>
+                    <img src="https://media.tenor.com/TReUojNlZ6wAAAAi/js-javascript.gif" alt="Javascript">
+                    <input type="radio" name="q2" value="3" required> Javascript
+                </label>
+            </div>
+
+            <!--Question 3-->
+            <div class="question-box">
+                <p>3. One word to describe your work ethic.</p>
+                <label>
+                    <img src="https://i.gifer.com/7koo.gif" alt="Punctuality">
+                    <input type="radio" name="q3" value="1" required> Punctuality
+                </label>
+                <label>
+                    <img src="https://i.gifer.com/7LDs.gif" alt="Accountability">
+                    <input type="radio" name="q3" value="2" required> Accountability
+                </label>
+                <label>
+                    <img src="https://i.gifer.com/4q43.gif" alt="Teamwork">
+                    <input type="radio" name="q3" value="3" required> Teamwork
+                </label>
+            </div>
+
+            <!--Question 4-->
+            <div class="question-box">
+                <p>4. Which of these do you value the most?</p>
+                <label>
+                    <img src="https://i.gifer.com/6ElP.gif" alt="Independence">
+                    <input type="radio" name="q4" value="1" required> Independence
+                </label>
+                <label>
+                    <img src="https://i.gifer.com/9jDg.gif" alt="Friendship">
+                    <input type="radio" name="q4" value="2" required> Friendship
+                </label>
+                <label>
+                    <img src="https://i.gifer.com/7Mpp.gif" alt="Family">
+                    <input type="radio" name="q4" value="3" required> Family
+                </label>
+            </div>
+            
+            <!--Question 5-->
+            <div class="question-box">
+                <p>5. Pick an Element</p>
+                <label>
+                    <img src="https://i.gifer.com/747m.gif" alt="Air">
+                    <input type="radio" name="q5" value="1" required> Air
+                </label>
+                <label>
+                    <img src="https://i.gifer.com/TL80.gif" alt="Water">
+                    <input type="radio" name="q5" value="2" required> Water
+                </label>
+                <label>
+                    <img src="https://i.gifer.com/5GpM.gif" alt="Fire">
+                    <input type="radio" name="q5" value="3" required> Fire
+                </label>
+            </div>
+
+            <!--Submit button for the quiz-->
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 CodeEscape. All rights reserved.</p>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title of the homepage -->
+    <title>CodeEscape</title>
+
+    <!-- Linking Google Fonts that we have found for our website -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Here we are linking the external CSS file for styling -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <!-- Logo linking to the homepage -->
+                <a href="index_logged_in.html">CodeEscape</a>
+            </div>
+            <!-- Navigation links for different sections of the website -->
+            <ul class="nav-links">
+                <li><a href="index_logged_in.html">Home</a></li>
+                <li><a href="games_page_logged_in.php">Games</a></li>
+                <li><a href="profile.php">My Profile</a></li>
+                <li><a href="about_us_logged_in.html">About</a></li>
+                <li><a href="contact_us_logged_in.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- The content of the section -->
+        <div class="hero-content">
+            <h1>Welcome back to CodeEscape!</h1>
+            <p>Dive into our exciting coding challenges and continue your learning journey</p>
+            <!-- 'Start Coding Now' Button linking to the games page for logged-in users -->
+            <a href="games_page_logged_in.php" class="btn">Start Coding now!</a>
+            <div class="login-link" id="login-link">
+                <!-- Empty div for login link, not used in the logged-in version -->
+            </div>
+            <div class="login-box" id="login-box">
+                <!-- Hidden Login Box, not used in logged-in version -->
+                <form method="POST" action="login.php">
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="password" name="password" placeholder="Password">
+                    <button type="submit">Log In</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Features</h2>
+        <!-- Feature Cards with the description of each feature-->
+        <div class="feature-cards">
+            <div class="card">
+                <!-- Card for Interactive Learning feature -->
+                <h3>Interactive Learning</h3>
+                <p>Engage with coding challenges that teach HTML, CSS, and JavaScript in a fun way.</p>
+            </div>
+            <div class="card">
+                <!-- Card for Progress Tracking feature -->
+                <h3>Progress Tracking</h3>
+                <p>Track your learning progress and see how far you've come.</p>
+            </div>
+            <div class="card">
+                <!-- Card for Custom Avatars feature -->
+                <h3>Custom Avatars</h3>
+                <p>Create a unique avatar based on your personality and achievements.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Users Say</h2>
+        <!-- Testimonial Cards with user feedback -->
+        <div class="testimonial-cards">
+            <!-- Card with feedback from User A -->
+            <div class="testimonial">
+                <p>"CodeEscape has transformed the way I learn coding. It's engaging and fun!"</p>
+                <span>- User A</span>
+            </div>
+            <!-- Card with feedback from User B -->
+            <div class="testimonial">
+                <p>"I love the interactive challenges. They make learning so much more enjoyable."</p>
+                <span>- User B</span>
+            </div>
+            <!-- Card with feedback from User C -->
+            <div class="testimonial">
+                <p>"The progress tracking helps me stay motivated and see my improvements."</p>
+                <span>- User C</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 CodeEscape. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for handling the login form display, which is not really used in the login version but is still included here for consistency -->
+    <script>
+        document.getElementById('login-action').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            var loginBox = document.getElementById('login-box'); // Login form container
+            var loginLink = document.getElementById('login-link'); // Login link container
+            var getStartedBtn = document.querySelector('.hero .btn'); // 'Start Coding Now' button
+
+            // Toggle the display of login form and other elements
+            if (loginBox.style.display === 'none' || loginBox.style.display === '') {
+                loginBox.style.display = 'block'; // Show login form
+                loginLink.style.display = 'none'; // Hide login link
+                getStartedBtn.style.display = 'none'; // Hide 'Start Coding Now' button
+            } else {
+                loginBox.style.display = 'none'; // Hide login form
+                loginLink.style.display = 'block'; // Show login link
+                getStartedBtn.style.display = 'inline-block'; // Show 'Start Coding Now' button
+            }
+        });
+    </script>
+</body>
+</html>

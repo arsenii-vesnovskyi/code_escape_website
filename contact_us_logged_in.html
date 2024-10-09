@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the page -->
+    <title>Contact Us - CodeEscape</title>
+    
+    <!-- Linking Google Fonts that we have found for our website -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Linking external CSS stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Internal CSS for styling specific elements on this page for which global styles are defined differently -->
+    <style>
+        /* Styling for the content section */
+        .content-section {
+            text-align: center;
+            padding: 100px 20px 50px 20px;
+            background: url('assets/contact.jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        /* Styling for the toggle sections */
+        .toggle-section {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        /* Styling for the section headings */
+        .toggle-section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            font-family: 'Press Start 2P', cursive;
+        }
+        /* Styling to hide the content initially, in order to display in on click */
+        .toggle-content {
+            display: none;
+        }
+    </style>
+    
+    <!-- JavaScript functions for interactivity -->
+    <script>
+        // Function to toggle the visibility of sections
+        function toggleSection(id) {
+            var section = document.getElementById(id);
+            if (section.style.display === 'none' || section.style.display === '') {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        }
+    
+        // Function to handle form submission
+        function submitForm(event) {
+            // First, we prevent the default form submission behavior (which would reload the page)
+            event.preventDefault();
+
+            // Then, we get the form element using its ID
+            var form = document.getElementById('contactForm');
+
+            // And create a FormData object from the form, which captures the form's data in key-value pairs, like a dictionary
+            var formData = new FormData(form);
+
+            // Then, we use the fetch API to send a POST request to 'submit_form.php' with the form data
+            fetch('submit_form.php', {
+                method: 'POST', // HTTP method must be set to POST
+                body: formData  // Request body should contain the data from FormData object
+            })
+            // Once the request is complete and we get the response from the server
+            .then(response => {
+                // We convert the response to JSON format
+                return response.json();
+            })
+            // Then we take that json data
+            .then(data => {
+                // And show a popup message to the user with the message received from the server (which we define later)
+                showPopup(data.message);
+
+                // If the server responded with a success status, we reset the form
+                if (data.status === 'success') {
+                    form.reset();
+                }
+            })
+            // If any errors occurr during the fetch request
+            .catch(error => {
+                // We log the error to the console for debugging
+                console.error('Error:', error);
+
+                // And show a popup message to the user to singal that an error occurred
+                showPopup('An error occurred. Please try again.');
+            });
+        }
+
+
+        // Function to show a popup message
+        function showPopup(message) {
+            // We get the popup message from the server
+            var popup = document.getElementById('popupMessage');
+            // And the overlay
+            var overlay = document.getElementById('popupOverlay');
+            // We set the message in the popup
+            popup.querySelector('p').innerText = message;
+            // And display the popup and overlay to the user
+            popup.style.display = 'block';
+            overlay.style.display = 'block';
+        }
+
+        // Function to close the popup message
+        function closePopup() {
+            // We get the popup message from the server
+            var popup = document.getElementById('popupMessage');
+            // And the overlay
+            var overlay = document.getElementById('popupOverlay');
+            // We hide the popup and overlay from the user if they click the close button
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <!-- Navigation bar with logo and links -->
+        <nav class="navbar">
+            <div class="logo">
+                <!-- Logo linking to the homepage -->
+                <a href="index_logged_in.html">CodeEscape</a>
+            </div>
+            <!-- Navigation links for different sections of the website -->
+            <ul class="nav-links">
+                <li><a href="index_logged_in.html">Home</a></li>
+                <li><a href="games_page_logged_in.php">Games</a></li>
+                <li><a href="profile.php">My Profile</a></li>
+                <li><a href="about_us_logged_in.html">About</a></li>
+                <li><a href="contact_us_logged_in.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <section class="content-section">
+        <!-- FAQ Section with toggle functionality -->
+        <div class="toggle-section">
+            <!-- Section heading with onclick event to display the content -->
+            <h2 onclick="toggleSection('faq')">FAQ</h2>
+            <!-- Content to be displayed when the section is toggled -->
+            <div id="faq" class="toggle-content">
+                <h3>What is CodeEscape?</h3>
+                <p>CodeEscape is an interactive platform designed to teach web programming through engaging games.</p>
+                <h3>How does CodeEscape work?</h3>
+                <p>CodeEscape offers a variety of games that guide you through different programming concepts and challenges. As you play, you learn and apply programming skills in real-time.</p>
+                <h3>What types of games are available on CodeEscape?</h3>
+                <p>We offer a wide range of games including puzzle games, strategy games, and adventure games, all designed to teach different aspects of web programming. Note: Some games are still in development and will be available soon.</p>
+                <h3>Which programming languages can I learn on CodeEscape?</h3>
+                <p>You can learn a variety of programming languages including HTML, CSS, JavaScript, Python, and more. We are constantly expanding our curriculum to include more languages.</p>
+                <h3>Do I need any prior programming knowledge to start playing?</h3>
+                <p>No, CodeEscape is designed for all skill levels. Beginners can start with basic games to learn foundational concepts, while advanced users can challenge themselves with more complex games.</p>
+                <h3>Can I save my game progress?</h3>
+                <p>Yes, you can save your progress and resume at any time. Just make sure you are logged into your account.</p>
+                <h3>How do I create an account?</h3>
+                <p>Click on the "Sign Up" button on the homepage, fill in your details, and you’ll be ready to start your learning journey.</p>
+                <h3>I forgot my password. What should I do?</h3>
+                <p>Since we are still developing our website we encourage you to contact us through the Contact Us section below and ask for assistance.</p>
+                <h3>Who do I contact for support?</h3>
+                <p>If you need any help, you can reach out to our support team via the "Contact Us" page, or email us at support@codeescape.com.</p>
+            </div>
+        </div>
+
+        <!-- Contact Us Section with form submission functionality -->
+        <div class="toggle-section">
+            <!-- Section heading with onclick event to display the content -->
+            <h2 onclick="toggleSection('contact')">Contact Us</h2>
+            <!-- Content to be displayed when the section is toggled -->
+            <div id="contact" class="toggle-content">
+                <!-- Form for user to submit a message -->
+                <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+                    <!-- Input fields for user name, email, and message -->
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                    <!-- Submit button for the form -->
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup Message for feedback -->
+    <!-- If the user clicks in the overlay, the popup will close -->
+    <div id="popupOverlay" class="popup-overlay" onclick="closePopup()"></div>
+    <div id="popupMessage" class="popup-message">
+        <p></p>
+        <!-- Button to close the popup message -->
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 CodeEscape. All rights reserved.</p>
+    </footer>
+</body>
+</html>

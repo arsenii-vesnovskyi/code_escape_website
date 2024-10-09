@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title of the homepage -->
+    <title>CodeEscape</title>
+
+    <!-- Linking Google Fonts that we have found for our website -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Linking the external CSS file for styling -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <!-- Logo linking to the homepage -->
+                <a href="index.html">CodeEscape</a>
+            </div>
+            <!-- Navigation links for different sections of the website -->
+            <!-- My Profile page is not available for users that are not logged in -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games_page_logged_out.html">Games</a></li>
+                <li><a href="about_us_logged_out.html">About</a></li>
+                <li><a href="contact_us_logged_out.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- The content of the section -->
+        <div class="hero-content">
+            <h1>Welcome to CodeEscape</h1>
+            <p>Learn web development through interactive escape room challenges!</p>
+            <!-- 'Get Started' Button linking to the signup page -->
+            <a href="signup.php" class="btn">Get Started</a>
+            <!-- Empty Login Link which triggers the appearence of the login box-->
+            <div class="login-link" id="login-link">
+                <span>Already have an account? <a href="#" id="login-action">Log in</a></span>
+            </div>
+            <!-- Hidden Login Box that appears when login link is clicked -->
+            <div class="login-box" id="login-box">
+                <!-- Login form with email, password, and submit button which sends data to login.php -->
+                <form method="POST" action="login.php">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <!-- Submit button -->
+                    <button type="submit">Log In</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Features</h2>
+        <!-- Feature Cards with the description of each feature-->
+        <div class="feature-cards">
+            <!-- Card for Interactive Learning feature -->
+            <div class="card">
+                <h3>Interactive Learning</h3>
+                <p>Engage with coding challenges that teach HTML, CSS, and JavaScript in a fun way.</p>
+            </div>
+            <!-- Card for Progress Tracking feature -->
+            <div class="card">
+                <h3>Progress Tracking</h3>
+                <p>Track your learning progress and see how far you've come.</p>
+            </div>
+            <!-- Card for Custom Avatars feature -->
+            <div class="card">
+                <h3>Custom Avatars</h3>
+                <p>Create a unique avatar based on your personality and achievements.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Users Say</h2>
+        <!-- Testimonial Cards with user feedback -->
+        <div class="testimonial-cards">
+            <!-- Card with feedback from User A -->
+            <div class="testimonial">
+                <p>"CodeEscape has transformed the way I learn coding. It's engaging and fun!"</p>
+                <span>- User A</span>
+            </div>
+            <!-- Card with feedback from User B -->
+            <div class="testimonial">
+                <p>"I love the interactive challenges. They make learning so much more enjoyable."</p>
+                <span>- User B</span>
+            </div>
+            <!-- Card with feedback from User C -->
+            <div class="testimonial">
+                <p>"The progress tracking helps me stay motivated and see my improvements."</p>
+                <span>- User C</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <h2>Ready to Level Up Your Coding Skills?</h2>
+        <p>Join thousands of learners and start your coding adventure today!</p>
+        <!-- 'Join Now' Button linking to the signup page -->
+        <a href="signup.php" class="btn">Join Now</a>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 CodeEscape. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for handling the login form display -->
+    <script>
+        document.getElementById('login-action').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            var loginBox = document.getElementById('login-box'); // Login form container
+            var loginLink = document.getElementById('login-link'); // Login link container
+            var getStartedBtn = document.querySelector('.hero .btn'); // Get Started button
+
+            // Toggle the display of login form and other elements
+            if (loginBox.style.display === 'none' || loginBox.style.display === '') {
+                loginBox.style.display = 'block'; // Show login form
+                loginLink.style.display = 'none'; // Hide login link
+                getStartedBtn.style.display = 'none'; // Hide Get Started button
+            } else {
+                loginBox.style.display = 'none'; // Hide login form
+                loginLink.style.display = 'block'; // Show login link
+                getStartedBtn.style.display = 'inline-block'; // Show Get Started button
+            }
+        });
+    </script>
+</body>
+</html>
