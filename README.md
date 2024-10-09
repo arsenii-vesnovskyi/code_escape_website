@@ -39,3 +39,24 @@ This page has two different versions for logged in and logged out users (My Prof
 
 Here we include a section for Frequently Asked Questions (FAQ) and a form for inquiries, which are saved in our database table “contacts”.
 This page has two different versions for logged in and logged out users (My Profile is not displayed in navigation bar for logged out users).
+
+## Files Tree
+- assets - folder that contains visual content for the website
+- about_us_logged_in.html - html for the logged in version of the "About Us" page
+- about_us_logged_out.html - html for the logged out version of the "About Us" page
+- contact_us_logged_in.html - html for the logged in version of the "Contact Us" page
+- contact_us_logged_out.html - html for the logged out version of the "Contact Us" page
+- db.php - the php file that initiates the connection with the database
+- games_page_logged_in.php - the html file embedded in php format to allow for php functionality in the "Games" page, logged in version
+- games_page_logged_out.html - the html file of the "Games" page, logged out version, php functionality is not needed here
+- index.html - homepage html file, logged out version
+- index_logged_in.html - homepage html file, logged in version
+- login.php - php file that enables login process (check against existing users and their passwords in the database)
+- logout.php - php file that allows the user to log out and end the current session
+- profile.php - the html file embedded in php format to allow for php functionality in the "Profile" page, only available for logged in users
+- signup.js - java script file that validates the input fields during the sign up
+- signup.php - html file embedded into php format to allow for the check if such a user with such a username can be created
+- signup_quiz.html - the html file of the sign-up quiz, which needs to be completed to finish the sign-up process and create a profile
+- signup_quiz.php - the php file that completes the sign-up process through saving the user credentials and quiz outputs in the database
+- styles.css - css style sheet
+- submit_form.php - php file that enables the submission of the "Contact Us" form
